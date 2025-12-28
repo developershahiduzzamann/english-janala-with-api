@@ -4,12 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English-Janala</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/5cd4cb7ac6.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    
+<header class="bg-[#EDEDED] border-b border-b-[#C6BDBD] py-4 px-4">
+    <nav class="max-w-[1760px] w-full mx-auto">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-1">
+                <h3 class="poppins text-xl font-semibold">English</h3>
+                <img class="h-[40px] w-[40px]" 
+                     src="https://img.icons8.com/?size=100&id=0Z13GGjm97Ku&format=png&color=000000">
+                <h3 class="tilt text-xl">জানালা</h3>
+            </div>
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-3 poppins text-sm font-semibold">
+                <button class="btn text-[#422AD5] w-[82px] h-[40px] border border-[#422AD5] rounded-md">
+                    <i class="fa-solid fa-circle-question"></i> FAQ
+                </button>
+                <button class="btn text-[#422AD5] w-[95px] h-[40px] border border-[#422AD5] rounded-md">
+                    <i class="fa-solid fa-book-open"></i> Learn
+                </button>
+                <button class="btn text-[#422AD5] w-[102px] h-[40px] border border-[#422AD5] rounded-md">
+                    <i class="fa-solid fa-right-from-bracket fa-flip-vertical"></i> Logout
+                </button>
+            </div>
+            <!-- Mobile Dropdown Menu -->
+            <div class="dropdown dropdown-end lg:hidden">
+                <label tabindex="0" class="btn btn-ghost text-xl text-[#422AD5]">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
 
+                <ul tabindex="0"
+                    class="dropdown-content mt-3 p-2 shadow bg-white rounded-md w-44 poppins text-sm font-semibold">
+                    <!-- item -->
+                    <li>
+                        <a class="flex items-center gap-2 px-3 py-2 rounded-md
+                                  transition-all duration-200
+                                  hover:bg-[#422AD5] hover:text-white
+                                  active:bg-[#422AD5] active:text-white">
+                            <i class="fa-solid fa-circle-question"></i> FAQ
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-2 px-3 py-2 rounded-md
+                                  transition-all duration-200
+                                  hover:bg-[#422AD5] hover:text-white
+                                  active:bg-[#422AD5] active:text-white">
+                            <i class="fa-solid fa-book-open"></i> Learn
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-2 px-3 py-2 rounded-md
+                                  transition-all duration-200
+                                  hover:bg-[#422AD5] hover:text-white
+                                  active:bg-[#422AD5] active:text-white">
+                            <i class="fa-solid fa-right-from-bracket fa-flip-vertical"></i> Logout
+                        </a>
+                    </li>
 
-    <script src="./assets/js/index.js"></script>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 </body>
 </html>
