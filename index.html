@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English-Janala</title>
     <!-- DaisyUI -->
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://kit.fontawesome.com/5cd4cb7ac6.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-<header class="bg-[#EDEDED] border-b border-b-[#C6BDBD] py-4 px-4">
-    <nav class="max-w-[1760px] w-full mx-auto">
+<header id="display-header" class="bg-[#EDEDED] border-b border-b-[#C6BDBD] py-4 ">
+    <nav class="max-w-[1760px] w-full mx-auto px-4">
         <div class="flex justify-between items-center">
             <!-- Logo -->
             <div class="flex items-center gap-1">
@@ -29,7 +30,7 @@
                 <button class="btn text-[#422AD5] w-[95px] h-[40px] border border-[#422AD5] rounded-md">
                     <i class="fa-solid fa-book-open"></i> Learn
                 </button>
-                <button class="btn text-[#422AD5] w-[102px] h-[40px] border border-[#422AD5] rounded-md">
+                <button id="log-Out" class="btn text-[#422AD5] w-[102px] h-[40px] border border-[#422AD5] rounded-md">
                     <i class="fa-solid fa-right-from-bracket fa-flip-vertical"></i> Logout
                 </button>
             </div>
@@ -38,7 +39,6 @@
                 <label tabindex="0" class="btn btn-ghost text-xl text-[#422AD5]">
                     <i class="fa-solid fa-bars"></i>
                 </label>
-
                 <ul tabindex="0"
                     class="dropdown-content mt-3 p-2 shadow bg-white rounded-md w-44 poppins text-sm font-semibold">
                     <!-- item -->
@@ -58,7 +58,7 @@
                             <i class="fa-solid fa-book-open"></i> Learn
                         </a>
                     </li>
-                    <li>
+                    <li id="log-Out">
                         <a class="flex items-center gap-2 px-3 py-2 rounded-md
                                   transition-all duration-200
                                   hover:bg-[#422AD5] hover:text-white
@@ -66,11 +66,44 @@
                             <i class="fa-solid fa-right-from-bracket fa-flip-vertical"></i> Logout
                         </a>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
 </header>
+<main>
+    <section class="max-w-[1760px] w-full mx-auto px-4">
+        <div class="flex flex-col lg:flex-row justify-between items-center gap-10">
+            <!-- Text Content -->
+            <div class="text-center lg:text-left">
+                <h1 class="poppins text-[36px] lg:text-[48px] font-bold">
+                    <span class="text-[#00BCFF]">English</span> is Easy!!
+                </h1>
+                <p class="hind text-lg lg:text-2xl font-medium lg:w-[727px] opacity-[80%] mt-5">
+                    আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+                </p>
+                <div class="mt-5 flex justify-center lg:justify-start">
+                    <form class="flex flex-col">
+                        <input id="input-name" class="h-[40px] w-[320px] pl-3 border border-[#D1D1D1] rounded-md poppins text-base"
+                            type="text" placeholder="Enter Your Name">
+                        <input id="input-password" class="h-[40px] w-[320px] pl-3 border border-[#D1D1D1] rounded-md poppins text-base mt-4"
+                        type="text" placeholder="Type Your Password (123456)">
+                        <button id="btn-get-start" class="btn text-[#E0E7FF] bg-[#422AD5] w-[115px] h-[40px] border border-[#422AD5] rounded-md mt-4">Get Started
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- Image -->
+            <div class="w-full lg:w-[734px] h-auto lg:h-[732px] flex justify-center">
+                <img
+                class="w-[300px] sm:w-[400px] lg:w-[734px] h-auto lg:h-[732px]"
+                src="./assets/imsges/hero-student.png"
+                alt="">
+            </div>
+        </div>
+    </section>
+
+</main>
+    <script src="./assets/js/index.js"></script>
 </body>
 </html>
