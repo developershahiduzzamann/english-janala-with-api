@@ -58,8 +58,8 @@
                                 <i class="fa-solid fa-book-open"></i> Learn
                             </a>
                         </li>
-                        <li id="log-Out">
-                            <a class="flex items-center gap-2 px-3 py-2 rounded-md
+                        <li>
+                            <a id="log-Out-mobile" class="flex items-center gap-2 px-3 py-2 rounded-md
                                     transition-all duration-200
                                     hover:bg-[#422AD5] hover:text-white
                                     active:bg-[#422AD5] active:text-white">
@@ -106,40 +106,15 @@
             <div class="text-center mt-20">
                 <h1 class="poppins text-[36px] font-bold "><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h1>
             </div>
-            <div class="grid grid-cols-2 md:flex justify-center gap-5 mt-5">
-                <div>
-                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
-                    <i class="fa-solid fa-book-open"></i> Lessons-1</button> 
-                </div>
-                <div>
-                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
-                    <i class="fa-solid fa-book-open"></i> Lessons-2</button>   
-                </div>
-                <div>
-                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
-                    <i class="fa-solid fa-book-open"></i> Lessons-3</button>  
-                </div>
-                <div>
-                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
-                    <i class="fa-solid fa-book-open"></i> Lessons-4</button>
-                </div>
-                <div>
-                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
-                    <i class="fa-solid fa-book-open"></i> Lessons-5</button>
-                </div>
-                <div>
-                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
-                    <i class="fa-solid fa-book-open"></i> Lessons-6</button>
-                </div>
-                <div>
-                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
-                    <i class="fa-solid fa-book-open"></i> Lessons-7</button>
-                </div>
+            <div id="button-display" class="grid grid-cols-2 md:flex justify-center gap-5 mt-5">
+                
             </div>
             <div class="bg-[#F8F8F8] rounded-xl py-10 px-4 mt-7">
-                <div class="child text-center">
+                <div class="child text-center hidden">
                     <h4 class="">আপনি এখনো কোন <span>Lesson Select</span> করেননি</h4>
                     <h2>একটি Lesson Select করুন।</h2>
+                </div>
+                <div id="card-container" class=" grid grid-cols-1 md:grid-cols-3 gap-x-[270px] gap-y-10">
                 </div>
             </div>
         </section>
@@ -191,9 +166,9 @@
                     <div>
                         <h4 class="text-sm font-semibold poppins text-[#18181B] opacity-[60%]">Follow us</h4>
                         <div class="flex gap-3 mt-2">
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-brands fa-youtube"></i>
-                            <i class="fa-brands fa-instagram"></i>
+                            <a href="https://www.facebook.com/shahiduzzamannkhansabbir/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.youtube.com/@developershahiduzzaman" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/shahiduzzamankhansabbir/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
