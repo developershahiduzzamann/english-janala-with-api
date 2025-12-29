@@ -12,98 +12,194 @@
 </head>
 
 <body>
-<header id="display-header" class="bg-[#EDEDED] border-b border-b-[#C6BDBD] py-4 ">
-    <nav class="max-w-[1760px] w-full mx-auto px-4">
-        <div class="flex justify-between items-center">
-            <!-- Logo -->
-            <div class="flex items-center gap-1">
-                <h3 class="poppins text-xl font-semibold">English</h3>
-                <img class="h-[40px] w-[40px]" 
-                     src="https://img.icons8.com/?size=100&id=0Z13GGjm97Ku&format=png&color=000000">
-                <h3 class="tilt text-xl">জানালা</h3>
-            </div>
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex items-center gap-3 poppins text-sm font-semibold">
-                <button class="btn text-[#422AD5] w-[82px] h-[40px] border border-[#422AD5] rounded-md">
-                    <i class="fa-solid fa-circle-question"></i> FAQ
-                </button>
-                <button class="btn text-[#422AD5] w-[95px] h-[40px] border border-[#422AD5] rounded-md">
-                    <i class="fa-solid fa-book-open"></i> Learn
-                </button>
-                <button id="log-Out" class="btn text-[#422AD5] w-[102px] h-[40px] border border-[#422AD5] rounded-md">
-                    <i class="fa-solid fa-right-from-bracket fa-flip-vertical"></i> Logout
-                </button>
-            </div>
-            <!-- Mobile Dropdown Menu -->
-            <div class="dropdown dropdown-end lg:hidden">
-                <label tabindex="0" class="btn btn-ghost text-xl text-[#422AD5]">
-                    <i class="fa-solid fa-bars"></i>
-                </label>
-                <ul tabindex="0"
-                    class="dropdown-content mt-3 p-2 shadow bg-white rounded-md w-44 poppins text-sm font-semibold">
-                    <!-- item -->
-                    <li>
-                        <a class="flex items-center gap-2 px-3 py-2 rounded-md
-                                  transition-all duration-200
-                                  hover:bg-[#422AD5] hover:text-white
-                                  active:bg-[#422AD5] active:text-white">
-                            <i class="fa-solid fa-circle-question"></i> FAQ
-                        </a>
-                    </li>
-                    <li>
-                        <a class="flex items-center gap-2 px-3 py-2 rounded-md
-                                  transition-all duration-200
-                                  hover:bg-[#422AD5] hover:text-white
-                                  active:bg-[#422AD5] active:text-white">
-                            <i class="fa-solid fa-book-open"></i> Learn
-                        </a>
-                    </li>
-                    <li id="log-Out">
-                        <a class="flex items-center gap-2 px-3 py-2 rounded-md
-                                  transition-all duration-200
-                                  hover:bg-[#422AD5] hover:text-white
-                                  active:bg-[#422AD5] active:text-white">
-                            <i class="fa-solid fa-right-from-bracket fa-flip-vertical"></i> Logout
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-<main>
-    <section class="max-w-[1760px] w-full mx-auto px-4">
-        <div class="flex flex-col lg:flex-row justify-between items-center gap-10">
-            <!-- Text Content -->
-            <div class="text-center lg:text-left">
-                <h1 class="poppins text-[36px] lg:text-[48px] font-bold">
-                    <span class="text-[#00BCFF]">English</span> is Easy!!
-                </h1>
-                <p class="hind text-lg lg:text-2xl font-medium lg:w-[727px] opacity-[80%] mt-5">
-                    আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
-                </p>
-                <div class="mt-5 flex justify-center lg:justify-start">
-                    <form class="flex flex-col">
-                        <input id="input-name" class="h-[40px] w-[320px] pl-3 border border-[#D1D1D1] rounded-md poppins text-base"
-                            type="text" placeholder="Enter Your Name">
-                        <input id="input-password" class="h-[40px] w-[320px] pl-3 border border-[#D1D1D1] rounded-md poppins text-base mt-4"
-                        type="text" placeholder="Type Your Password (123456)">
-                        <button id="btn-get-start" class="btn text-[#E0E7FF] bg-[#422AD5] w-[115px] h-[40px] border border-[#422AD5] rounded-md mt-4">Get Started
-                        </button>
-                    </form>
+    <header id="display-header" class="bg-[#EDEDED] border-b border-b-[#C6BDBD] py-4 ">
+        <nav class="max-w-[1760px] w-full mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-1">
+                    <h3 class="poppins text-xl font-semibold">English</h3>
+                    <img class="h-[40px] w-[40px]" 
+                        src="https://img.icons8.com/?size=100&id=0Z13GGjm97Ku&format=png&color=000000">
+                    <h3 class="tilt text-xl">জানালা</h3>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-3 poppins text-sm font-semibold">
+                    <button id="btn-faq" class="btn text-[#422AD5] w-[82px] h-[40px] border border-[#422AD5] rounded-md">
+                        <i class="fa-solid fa-circle-question"></i> FAQ
+                    </button>
+                    <button id="btn-learn" class="btn text-[#422AD5] w-[95px] h-[40px] border border-[#422AD5] rounded-md">
+                        <i class="fa-solid fa-book-open"></i> Learn
+                    </button>
+                    <button id="log-Out" class="btn text-[#422AD5] w-[102px] h-[40px] border border-[#422AD5] rounded-md">
+                        <i class="fa-solid fa-right-from-bracket fa-flip-vertical"></i> Logout
+                    </button>
+                </div>
+                <!-- Mobile Dropdown Menu -->
+                <div class="dropdown dropdown-end lg:hidden">
+                    <label tabindex="0" class="btn btn-ghost text-xl text-[#422AD5]">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                    <ul tabindex="0"
+                        class="dropdown-content mt-3 p-2 shadow bg-white rounded-md w-44 poppins text-sm font-semibold">
+                        <!-- item -->
+                        <li id="btn-faq">
+                            <a class="flex items-center gap-2 px-3 py-2 rounded-md
+                                    transition-all duration-200
+                                    hover:bg-[#422AD5] hover:text-white
+                                    active:bg-[#422AD5] active:text-white">
+                                <i class="fa-solid fa-circle-question"></i> FAQ
+                            </a>
+                        </li>
+                        <li id="btn-learn">
+                            <a class="flex items-center gap-2 px-3 py-2 rounded-md
+                                    transition-all duration-200
+                                    hover:bg-[#422AD5] hover:text-white
+                                    active:bg-[#422AD5] active:text-white">
+                                <i class="fa-solid fa-book-open"></i> Learn
+                            </a>
+                        </li>
+                        <li id="log-Out">
+                            <a class="flex items-center gap-2 px-3 py-2 rounded-md
+                                    transition-all duration-200
+                                    hover:bg-[#422AD5] hover:text-white
+                                    active:bg-[#422AD5] active:text-white">
+                                <i class="fa-solid fa-right-from-bracket fa-flip-vertical"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <!-- Image -->
-            <div class="w-full lg:w-[734px] h-auto lg:h-[732px] flex justify-center">
-                <img
-                class="w-[300px] sm:w-[400px] lg:w-[734px] h-auto lg:h-[732px]"
-                src="./assets/imsges/hero-student.png"
-                alt="">
+        </nav>
+    </header>
+    <main class="">
+        <section class="max-w-[1760px] w-full mx-auto px-4">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-10">
+                <!-- Text Content -->
+                <div class="text-center lg:text-left">
+                    <h1 class="poppins text-[36px] lg:text-[48px] font-bold">
+                        <span class="text-[#00BCFF]">English</span> is Easy!!
+                    </h1>
+                    <p class="hind text-lg lg:text-2xl font-medium lg:w-[727px] opacity-[80%] mt-5">
+                        আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+                    </p>
+                    <div class="mt-5 flex justify-center lg:justify-start">
+                        <form class="flex flex-col">
+                            <input id="input-name" class="h-[40px] w-[320px] pl-3 border border-[#D1D1D1] rounded-md poppins text-base"
+                                type="text" placeholder="Enter Your Name">
+                            <input id="input-password" class="h-[40px] w-[320px] pl-3 border border-[#D1D1D1] rounded-md poppins text-base mt-4"
+                            type="password" placeholder="Type Your Password (123456)">
+                            <button id="btn-get-start" class="btn text-[#E0E7FF] bg-[#422AD5] w-[115px] h-[40px] border border-[#422AD5] rounded-md mt-4">Get Started
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Image -->
+                <div class="w-full lg:w-[734px] h-auto lg:h-[732px] flex justify-center">
+                    <img
+                    class="w-[300px] sm:w-[400px] lg:w-[734px] h-auto lg:h-[732px]"
+                    src="./assets/imsges/hero-student.png"
+                    alt="">
+                </div>
             </div>
-        </div>
-    </section>
-
-</main>
+        </section>
+        <section id="vocabularies" class="max-w-[1760px] w-full mx-auto px-4">
+            <div class="text-center mt-20">
+                <h1 class="poppins text-[36px] font-bold "><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h1>
+            </div>
+            <div class="grid grid-cols-2 md:flex justify-center gap-5 mt-5">
+                <div>
+                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
+                    <i class="fa-solid fa-book-open"></i> Lessons-1</button> 
+                </div>
+                <div>
+                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
+                    <i class="fa-solid fa-book-open"></i> Lessons-2</button>   
+                </div>
+                <div>
+                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
+                    <i class="fa-solid fa-book-open"></i> Lessons-3</button>  
+                </div>
+                <div>
+                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
+                    <i class="fa-solid fa-book-open"></i> Lessons-4</button>
+                </div>
+                <div>
+                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
+                    <i class="fa-solid fa-book-open"></i> Lessons-5</button>
+                </div>
+                <div>
+                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
+                    <i class="fa-solid fa-book-open"></i> Lessons-6</button>
+                </div>
+                <div>
+                    <button class="btn text-[#422AD5] w-[121px] h-[40px] border border-[#422AD5] rounded-md">
+                    <i class="fa-solid fa-book-open"></i> Lessons-7</button>
+                </div>
+            </div>
+            <div class="bg-[#F8F8F8] rounded-xl py-10 px-4 mt-7">
+                <div class="child text-center">
+                    <h4 class="">আপনি এখনো কোন <span>Lesson Select</span> করেননি</h4>
+                    <h2>একটি Lesson Select করুন।</h2>
+                </div>
+            </div>
+        </section>
+        <section id="frequently" class="max-w-[1760px] w-full mx-auto px-4">
+            <div class="text-center mt-24">
+                <h1 class="poppins text-[36px] font-bold"><span class="text-[#00BCFF]">Frequently</span> Asked Questions</h1>
+            </div>
+            <div class="mt-9">
+                <div class="collapse collapse-plus bg-base-100 border border-base-300 mb-4">
+                    <input type="radio" name="my-accordion-3" checked="checked" />
+                    <div class="collapse-title font-medium text-base poppins">1. How can I start learning English on this website?</div>
+                    <div class="collapse-content text-base poppins text-[#62748E]">You can start learning English here by practicing daily, learning basic words, reading short sentences, asking questions, correcting mistakes, and speaking aloud for at least fifteen minutes every day.</div>
+                </div>
+                <div class="collapse collapse-plus bg-base-100 border border-base-300 mb-4">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-medium text-base poppins">2. Is this website free to use?</div>
+                    <div class="collapse-content text-base poppins text-[#62748E]">Yes, learning and using ChatGPT here is free. You can ask questions, practice English, get explanations, translations, and exercises anytime without payment.</div>
+                </div>
+                <div class="collapse collapse-plus bg-base-100 border border-base-300 mb-4">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-medium text-base poppins">3. Do I need to create an account?</div>
+                    <div class="collapse-content text-base poppins text-[#62748E]">Yes, you need to create an account to use this website. Creating an account allows you to save chats, get better help, and access learning features easily.</div>
+                </div>
+                <div class="collapse collapse-plus bg-base-100 border border-base-300 mb-4">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-medium text-base poppins">4. How can I build my English vocabulary?</div>
+                    <div class="collapse-content text-base poppins text-[#62748E]">You can build your English vocabulary by learning new words daily, reading simple texts, using words in sentences, practicing regularly, and asking for meanings, examples, and corrections on this website.</div>
+                </div>
+                <div class="collapse collapse-plus bg-base-100 border border-base-300 mb-4">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-medium text-base poppins">5. Do you offer certificates for completed courses?</div>
+                    <div class="collapse-content text-base poppins text-[#62748E]">No, I don’t provide official certificates. But I can help you learn, practice, and improve your English step by step.</div>
+                </div>
+            </div>
+        </section>
+        <section class="border-t-1 border-[#FFEBEB] mt-24">
+            <div class="max-w-[1760px] w-full mx-auto px-4 py-16">
+                <div class="flex items-center gap-1">
+                    <h3 class="poppins text-xl font-semibold">English</h3>
+                    <img class="h-[40px] w-[40px]" 
+                    src="https://img.icons8.com/?size=100&id=0Z13GGjm97Ku&format=png&color=000000">
+                    <h3 class="tilt text-xl">জানালা</h3>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-medium hind">ইংরেজি শিখুন সহজে</h3>
+                        <h4 class="text-base hind">Providing ED-Tech Applications since 2025</h4>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold poppins text-[#18181B] opacity-[60%]">Follow us</h4>
+                        <div class="flex gap-3 mt-2">
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-youtube"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
     <script src="./assets/js/index.js"></script>
 </body>
 </html>
