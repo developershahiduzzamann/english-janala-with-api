@@ -1,4 +1,6 @@
-
+document.getElementById("display-header").style.display ="none"
+document.getElementById("vocabularies").style.display ="none"
+document.getElementById("frequently").style.display ="none"
 document.getElementById("btn-get-start").addEventListener("click",function (event){
     event.preventDefault();
     const inputName = document.getElementById("input-name").value
@@ -22,9 +24,9 @@ document.getElementById("btn-get-start").addEventListener("click",function (even
 })
 
 document.getElementById("log-Out").addEventListener("click",function(){
-    document.getElementById("display-header").style.display ="none"
     document.getElementById("vocabularies").style.display ="none"
     document.getElementById("frequently").style.display ="none"
+    document.getElementById("display-header").style.display ="none"
 })
 document.getElementById("btn-faq").addEventListener("click", function() {
     document.getElementById("frequently").scrollIntoView({ behavior: "smooth" });
