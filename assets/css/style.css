@@ -18,3 +18,8 @@
 .inter{
    font-family: "Inter", sans-serif;
 }
+
+.active{
+  background-color: #422AD5;
+  color: #fff;
+}

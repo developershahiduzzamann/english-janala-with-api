@@ -24,14 +24,14 @@
                 </div>
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center gap-3 poppins text-sm font-semibold">
-                    <button id="btn-faq" class="btn text-[#422AD5] w-[82px] h-[40px] border border-[#422AD5] rounded-md">
+                    <button id="btn-faq" class="btn text-[#422AD5] w-[82px] h-[40px] border border-[#422AD5] rounded-md hover:bg-[#422AD5] hover:text-white">
                         <i class="fa-solid fa-circle-question"></i> FAQ
                     </button>
-                    <button id="btn-learn" class="btn text-[#422AD5] w-[95px] h-[40px] border border-[#422AD5] rounded-md">
+                    <button id="btn-learn" class="btn text-[#422AD5] w-[95px] h-[40px] border border-[#422AD5] rounded-md hover:bg-[#422AD5] hover:text-white">
                         <i class="fa-solid fa-book-open"></i> Learn
                     </button>
-                    <button id="log-Out" class="btn text-[#422AD5] w-[102px] h-[40px] border border-[#422AD5] rounded-md">
-                        <i class="fa-solid fa-right-from-bracket fa-flip-vertical"></i> Logout
+                    <button id="log-Out" class="btn text-[#422AD5] w-[102px] h-[40px] border border-[#422AD5] rounded-md hover:bg-[#422AD5] hover:text-white">
+                        <i class="fa-solid fa-right-from-bracket fa-flip-vertical "></i> Logout
                     </button>
                 </div>
                 <!-- Mobile Dropdown Menu -->
@@ -110,11 +110,16 @@
                 
             </div>
             <div class="bg-[#F8F8F8] rounded-xl py-10 px-4 mt-7">
-                <div class="child text-center hidden">
-                    <h4 class="">আপনি এখনো কোন <span>Lesson Select</span> করেননি</h4>
-                    <h2>একটি Lesson Select করুন।</h2>
-                </div>
-                <div id="card-container" class=" grid grid-cols-1 md:grid-cols-3 md:gap-x-[150px] 2xl:gap-x-[270px] gap-y-10">
+                <div id="card-container" class=" grid grid-cols-1 md:grid-cols-3 lg:gap-x-[5px] 2xl:gap-x-[270px] gap-y-10">
+                    <div class=" col-span-full text-center hidden">
+                        <h4 class="hind text-sm text-[#79716B]">আপনি এখনো কোন <span>Lesson Select</span> করেননি</h4>
+                        <h1 class="hind text-[34px] font-medium">একটি Lesson Select করুন।</h1>
+                    </div>
+                    <div class="col-span-full flex flex-col text-center">
+                        <span class="text-[100px]"><i class="fa-solid fa-triangle-exclamation" style="color: #a4abb7;"></i></span>
+                        <h3 class="text-base hind text-[#79716B]">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</h3>
+                        <h1 class="text-[34px] hind font-medium">নেক্সট Lesson এ যান</h1>
+                    </div>
                 </div>
             </div>
         </section>
