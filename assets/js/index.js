@@ -26,7 +26,7 @@ document.getElementById("btn-get-start").addEventListener("click",function (even
 document.getElementById("log-Out").addEventListener("click",function(){
     document.getElementById("vocabularies").style.display ="none"
     document.getElementById("frequently").style.display ="none"
-    document.getElementById("display-header").style.display ="none"
+    document.getElementById("display-header").style.display ="none" 
 })
 document.getElementById("btn-faq").addEventListener("click", function() {
     document.getElementById("frequently").scrollIntoView({ behavior: "smooth" });
@@ -35,7 +35,12 @@ document.getElementById("btn-learn").addEventListener("click", function() {
     document.getElementById("vocabularies").scrollIntoView({ behavior: "smooth" });
 });
 
-
+const removeActiveClass =()=>{
+    const activeButtos =document.getElementsByClassName("active")
+    for(let btns of activeButtos){
+        btns.classList.remove("active");
+    }
+}
 
 const loadAllbuttonData = () => {
     fetch("https://openapi.programming-hero.com/api/levels/all")
@@ -50,6 +55,9 @@ const loadAllCard = (id) => {
     fetch(url)
         .then(response => response.json())
         .then(data => {
+            removeActiveClass()
+            const clickedButton = document.getElementById(`btn-${id}`);
+            clickedButton.classList.add("active");
             const cardContainer = document.getElementById("card-container");
             cardContainer.innerHTML = "";
             displayAllcard(data.data);
@@ -65,7 +73,7 @@ const displayallButtonData = (btns) => {
 
         const newDiv = document.createElement("div");
         newDiv.innerHTML = `
-            <button id=""
+            <button id="btn-${btn.level_no}"
                 onclick="loadAllCard(${btn.level_no})"
                 class="btn text-[#422AD5] w-[121px] md:w-[225px] h-[40px]
                        border border-[#422AD5] rounded-md hover:bg-[#422AD5] hover:text-white">
@@ -119,4 +127,3 @@ const displayAllcard = (cards) => {
 };
 
 loadAllbuttonData();
-
