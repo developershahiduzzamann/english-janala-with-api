@@ -35,6 +35,48 @@ document.getElementById("btn-learn").addEventListener("click", function() {
     document.getElementById("vocabularies").scrollIntoView({ behavior: "smooth" });
 });
 
+
+// সব active remove করার function
+function removeActive() {
+    document.querySelectorAll("#btn-faq, #btn-learn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+}
+
+/* ========= FAQ ========= */
+document.querySelectorAll("#btn-faq").forEach(btn => {
+    btn.addEventListener("click", () => {
+        removeActive();
+        btn.classList.add("active");
+
+        document.getElementById("frequently")
+            .scrollIntoView({ behavior: "smooth" });
+    });
+});
+
+/* ========= LEARN ========= */
+document.querySelectorAll("#btn-learn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        removeActive();
+        btn.classList.add("active");
+
+        document.getElementById("vocabularies")
+            .scrollIntoView({ behavior: "smooth" });
+    });
+});
+
+/* ========= LOGOUT ========= */
+document.getElementById("log-Out")?.addEventListener("click", () => {
+    alert("Logged out successfully");
+    location.reload();
+});
+
+document.getElementById("log-Out-mobile")?.addEventListener("click", () => {
+    alert("Logged out successfully");
+    location.reload();
+});
+
+
 const removeActiveClass =()=>{
     const activeButtos =document.getElementsByClassName("active")
     for(let btns of activeButtos){
