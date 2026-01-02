@@ -36,14 +36,12 @@ document.getElementById("btn-learn").addEventListener("click", function() {
 });
 
 
-// সব active remove করার function
 function removeActive() {
     document.querySelectorAll("#btn-faq, #btn-learn").forEach(btn => {
         btn.classList.remove("active");
     });
 }
 
-/* ========= FAQ ========= */
 document.querySelectorAll("#btn-faq").forEach(btn => {
     btn.addEventListener("click", () => {
         removeActive();
@@ -54,7 +52,6 @@ document.querySelectorAll("#btn-faq").forEach(btn => {
     });
 });
 
-/* ========= LEARN ========= */
 document.querySelectorAll("#btn-learn").forEach(btn => {
     btn.addEventListener("click", () => {
         removeActive();
@@ -65,7 +62,6 @@ document.querySelectorAll("#btn-learn").forEach(btn => {
     });
 });
 
-/* ========= LOGOUT ========= */
 document.getElementById("log-Out")?.addEventListener("click", () => {
     alert("Logged out successfully");
     location.reload();
