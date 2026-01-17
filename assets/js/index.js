@@ -88,6 +88,16 @@ const loadAllbuttonData = () => {
         });
 };
 
+const informationButton =(infoId)=>{
+    const url =`https://openapi.programming-hero.com/api/word/${infoId}`
+    fetch(url)
+    .then(res => res.json())
+    .then(data =>{
+        inforButton(data.data)
+    })
+
+}
+
 const loadAllCard = (id) => {
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
     fetch(url)
@@ -150,7 +160,7 @@ const displayAllcard = (cards) => {
                     </h1>
 
                     <div class="flex justify-between mt-16">
-                        <button class="w-[56px] h-[56px] bg-[#E9F4FF] rounded-lg flex items-center justify-center">
+                        <button onclick=informationButton(${card.id}) class="btn w-[56px] h-[56px] bg-[#E9F4FF] rounded-lg flex items-center justify-center">
                             <i class="fa-solid fa-circle-info"></i>
                         </button>
                         <button class="w-[56px] h-[56px] bg-[#E9F4FF] rounded-lg flex items-center justify-center">
@@ -163,5 +173,25 @@ const displayAllcard = (cards) => {
         cardContainer.appendChild(cardDiv);
     });
 };
+const inforButton = (info)=>{
+    console.log(info)
+    document.getElementById("info_modal").showModal()
+    const infoContainer = document.getElementById("info-container");
+    infoContainer.innerHTML =`
+        <h1 class="card-title poppins font-semibold text-[24px]">${info.word} (<i class="fa-solid fa-microphone-lines"></i>: ${info.pronunciation})</h1>
+        <h2 class="poppins font-semibold text-[24px] mt-3">Meaning</h2>
+        <h2 class="hind font-medium text-[24px] mt-3">${info.meaning}</h2>
+        <h2 class="poppins font-semibold text-[24px] mt-3">Example</h2>
+        <p class="poppins text-[24px] mt-3">${info.sentence}</p>
+
+        <h2 class="hind font-medium text-[24px] mt-3">সমার্থক শব্দ গুলো</h2>
+        <div class=" card-actions mt-3">
+            <div class="w-[160px] h-[50px] rounded-md bg-[#EDF7FF] flex justify-center items-center"><h2 class="poppins text-20px">Enthusiastic</h2></div>
+            <div class="w-[113px] h-[50px] rounded-md bg-[#EDF7FF] flex justify-center items-center"><h2 class="poppins text-20px">excited</h2></div>
+            <div class="w-[88px] h-[50px] rounded-md bg-[#EDF7FF] flex justify-center items-center"><h2 class="poppins text-20px">keen</h2></div>
+        </div>                   
+    `
+}
+
 
 loadAllbuttonData();
