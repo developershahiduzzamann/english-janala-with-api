@@ -1,3 +1,4 @@
+document.getElementById("banner-container").style.display ="block"
 document.getElementById("display-header").style.display ="none"
 document.getElementById("vocabularies").style.display ="none"
 document.getElementById("frequently").style.display ="none"
@@ -9,6 +10,7 @@ document.getElementById("btn-get-start").addEventListener("click",function (even
 
     if(inputName){
         if(pin === 123456){
+            document.getElementById("banner-container").style.display ="none"
             document.getElementById("display-header").style.display ="block"
             document.getElementById("vocabularies").style.display ="block"
             document.getElementById("frequently").style.display ="block"
@@ -160,10 +162,10 @@ const displayAllcard = (cards) => {
                     </h1>
 
                     <div class="flex justify-between mt-16">
-                        <button onclick=informationButton(${card.id}) class="btn w-[56px] h-[56px] bg-[#E9F4FF] rounded-lg flex items-center justify-center">
+                        <button onclick=informationButton(${card.id}) class="btn w-[56px] h-[56px] bg-[#E9F4FF] rounded-lg flex items-center justify-center hover:bg-[#422AD5] hover:text-white">
                             <i class="fa-solid fa-circle-info"></i>
                         </button>
-                        <button class="w-[56px] h-[56px] bg-[#E9F4FF] rounded-lg flex items-center justify-center">
+                        <button class="w-[56px] h-[56px] bg-[#E9F4FF] rounded-lg flex items-center justify-center hover:bg-[#422AD5] hover:text-white">
                             <i class="fa-solid fa-volume-low"></i>
                         </button>
                     </div>
@@ -186,9 +188,9 @@ const inforButton = (info)=>{
 
         <h2 class="hind font-medium text-[24px] mt-3">সমার্থক শব্দ গুলো</h2>
         <div class=" card-actions mt-3">
-            <div class="w-[160px] h-[50px] rounded-md bg-[#EDF7FF] flex justify-center items-center"><h2 class="poppins text-20px">Enthusiastic</h2></div>
-            <div class="w-[113px] h-[50px] rounded-md bg-[#EDF7FF] flex justify-center items-center"><h2 class="poppins text-20px">excited</h2></div>
-            <div class="w-[88px] h-[50px] rounded-md bg-[#EDF7FF] flex justify-center items-center"><h2 class="poppins text-20px">keen</h2></div>
+            <div class="w-[160px] h-[50px] rounded-md bg-[#EDF7FF] flex justify-center items-center"><h2 class="poppins text-20px">${info.synonyms[0]}</h2></div>
+            <div class="w-[113px] h-[50px] rounded-md bg-[#EDF7FF] flex justify-center items-center"><h2 class="poppins text-20px">${info.synonyms[1]}</h2></div>
+            <div class="w-[88px] h-[50px] rounded-md bg-[#EDF7FF] flex justify-center items-center"><h2 class="poppins text-20px">${info.synonyms[2]}</h2></div>
         </div>                   
     `
 }
