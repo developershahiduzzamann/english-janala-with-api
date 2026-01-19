@@ -107,7 +107,7 @@ const displayallButtonData = (btns) => {
         div.innerHTML = `
             <button id="btn-${btn.level_no}"
                 onclick="loadAllCard(${btn.level_no})"
-                class="btn text-[#422AD5] w-[121px] md:w-[225px] h-[40px]
+                class="btn text-[#422AD5] w-[150px] md:w-[225px] h-[40px]
                 border border-[#422AD5] rounded-md hover:bg-[#422AD5] hover:text-white">
                 <i class="fa-solid fa-book-open mr-2"></i>
                 ${btn.lessonName}
@@ -138,24 +138,29 @@ const displayAllcard = (cards) => {
     cards.forEach(card => {
         const div = document.createElement("div");
         div.innerHTML = `
-            <div class="card bg-base-100 shadow-sm h-[550px]">
+            <div class="card bg-base-100  h-[370px]">
                 <div class="card-body">
-                    <h1 class="text-center text-4xl font-bold">${card.word}</h1>
-                    <h2 class="text-center text-xl mt-2">Meaning / Pronunciation</h2>
-                    <h1 class="text-center text-[32px] text-[#464649]">
-                        "${card.meaning ? card.meaning : "অর্থ পাওয়া যায়নি"} / ${card.pronunciation}"
-                        
-                    </h1>
+                    <div class="card bg-base-100 shadow-sm h-full hover:bg-[#E9F4FF]">
+    <h1 class="text-center text-3xl font-bold mt-5">${card.word}</h1>
+    <h2 class="text-center text-xl mt-2">Meaning / Pronunciation</h2>
+    <h1 class="text-center text-[22px] text-[#464649]">
+        "${card.meaning ? card.meaning : "অর্থ পাওয়া যায়নি"} / ${card.pronunciation}"
+    </h1>
 
-                    <div class="flex justify-between mt-56">
-                        <button onclick="informationButton(${card.id})"
-                            class="btn w-[56px] h-[56px] bg-[#E9F4FF] hover:bg-[#422AD5] hover:text-white">
-                            <i class="fa-solid fa-circle-info"></i>
-                        </button>
-                        <button class="btn w-[56px] h-[56px] bg-[#E9F4FF] hover:bg-[#422AD5] hover:text-white">
-                            <i class="fa-solid fa-volume-low"></i>
-                        </button>
-                    </div>
+    <div class="flex justify-around mt-26">
+        <button onclick="informationButton(${card.id})"
+            class="btn w-[56px] h-[56px] bg-[#E9F4FF] hover:bg-[#422AD5] hover:text-white">
+            <i class="fa-solid fa-circle-info"></i>
+        </button>
+
+        <!-- sound button -->
+        <button class="card-sound btn w-[56px] h-[56px] bg-[#E9F4FF] hover:bg-[#422AD5] hover:text-white">
+            <i class="fa-solid fa-volume-low"></i>
+        </button>
+    </div>
+</div>
+
+                    
                 </div>
             </div>
         `;
@@ -210,5 +215,61 @@ const showLoader = () => {
         document.getElementById("card-container").classList.remove("hidden");
     }, 1100); // 3000ms = 3 seconds
 };
+
+
+let voices = [];
+
+// load voices
+speechSynthesis.onvoiceschanged = () => {
+    voices = speechSynthesis.getVoices();
+};
+
+document.addEventListener("click", function (e) {
+    const soundBtn = e.target.closest(".card-sound");
+    if (!soundBtn) return;
+
+    const card = soundBtn.closest(".card");
+    const wordH1 = card.querySelector("h1");
+    const text = wordH1.innerText.trim();
+    if (!text) return;
+
+    speechSynthesis.cancel();
+
+    // ON icon
+    soundBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    // Bangla / English detect
+    const isBangla = /[\u0980-\u09FF]/.test(text);
+    utterance.lang = isBangla ? "bn-BD" : "en-US";
+
+    // 🎤 Female voice select
+    const femaleVoice = voices.find(v =>
+        isBangla
+            ? v.lang.startsWith("bn") && v.name.toLowerCase().includes("female")
+            : v.lang.startsWith("en") && v.name.toLowerCase().includes("female")
+    ) || voices.find(v =>
+        isBangla ? v.lang.startsWith("bn") : v.lang.startsWith("en")
+    );
+
+    if (femaleVoice) utterance.voice = femaleVoice;
+
+    // 🎵 Sweet sound
+    utterance.rate = 0.8;
+    utterance.pitch = 1.2;
+    utterance.volume = 1;
+
+    // 📴 speaking শেষ হলে auto OFF
+    utterance.onend = () => {
+        soundBtn.innerHTML = '<i class="fa-solid fa-volume-low"></i>';
+    };
+
+    speechSynthesis.speak(utterance);
+});
+
+
+
+
 // ================= INIT =================
 loadAllbuttonData();
