@@ -1,59 +1,81 @@
-// ================= INITIAL DISPLAY =================
 document.getElementById("banner-container").style.display = "block";
 document.getElementById("display-header").style.display = "none";
 document.getElementById("vocabularies").style.display = "none";
 document.getElementById("frequently").style.display = "none";
 
-// ================= LOGIN =================
 document.getElementById("btn-get-start").addEventListener("click", function (event) {
     event.preventDefault();
 
     const inputName = document.getElementById("input-name").value;
-    const pin = parseInt(document.getElementById("input-password").value);
+    const inputPassword = document.getElementById("input-password").value;
+    const pin = parseInt(inputPassword);
 
-    if (!inputName) {
-        alert("Input Your Name");
-        return;
-    }
-
-    if (pin === 123456) {
-        document.getElementById("banner-container").style.display = "none";
-        document.getElementById("display-header").style.display = "block";
-        document.getElementById("vocabularies").style.display = "block";
-        document.getElementById("frequently").style.display = "block";
+    if (inputName) {
+        if (pin === 123456) {
+            document.getElementById("banner-container").style.display = "none";
+            document.getElementById("display-header").style.display = "block";
+            document.getElementById("vocabularies").style.display = "block";
+            document.getElementById("frequently").style.display = "block";
+        } else {
+            alert("Pin Not Vali");
+        }
     } else {
-        alert("Pin Not Valid");
+        alert("Input Your Name");
     }
 });
 
-// ================= LOGOUT =================
-function handleLogout() {
-    alert("Logged out successfully");
-    location.reload();
-}
+document.getElementById("log-Out").addEventListener("click", function () {
+    document.getElementById("vocabularies").style.display = "none";
+    document.getElementById("frequently").style.display = "none";
+    document.getElementById("display-header").style.display = "none";
+});
 
-document.getElementById("log-Out")?.addEventListener("click", handleLogout);
-document.getElementById("log-Out-mobile")?.addEventListener("click", handleLogout);
+document.getElementById("btn-faq").addEventListener("click", function () {
+    document.getElementById("frequently").scrollIntoView({ behavior: "smooth" });
+});
 
-// ================= ACTIVE CLASS =================
-function removeActiveClass() {
-    document.querySelectorAll(".active").forEach(btn => {
+document.getElementById("btn-learn").addEventListener("click", function () {
+    document.getElementById("vocabularies").scrollIntoView({ behavior: "smooth" });
+});
+
+function removeActive() {
+    document.querySelectorAll("#btn-faq, #btn-learn").forEach(btn => {
         btn.classList.remove("active");
     });
 }
 
-// ================= NAV SCROLL =================
-document.getElementById("btn-faq")?.addEventListener("click", () => {
-    removeActiveClass();
-    document.getElementById("btn-faq").classList.add("active");
-    document.getElementById("frequently").scrollIntoView({ behavior: "smooth" });
+document.querySelectorAll("#btn-faq").forEach(btn => {
+    btn.addEventListener("click", () => {
+        removeActive();
+        btn.classList.add("active");
+        document.getElementById("frequently").scrollIntoView({ behavior: "smooth" });
+    });
 });
 
-document.getElementById("btn-learn")?.addEventListener("click", () => {
-    removeActiveClass();
-    document.getElementById("btn-learn").classList.add("active");
-    document.getElementById("vocabularies").scrollIntoView({ behavior: "smooth" });
+document.querySelectorAll("#btn-learn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        removeActive();
+        btn.classList.add("active");
+        document.getElementById("vocabularies").scrollIntoView({ behavior: "smooth" });
+    });
 });
+
+document.getElementById("log-Out")?.addEventListener("click", () => {
+    alert("Logged out successfully");
+    location.reload();
+});
+
+document.getElementById("log-Out-mobile")?.addEventListener("click", () => {
+    alert("Logged out successfully");
+    location.reload();
+});
+
+const removeActiveClass = () => {
+    const activeButtos = document.getElementsByClassName("active");
+    for (let btns of activeButtos) {
+        btns.classList.remove("active");
+    }
+};
 
 // ================= LOAD BUTTON DATA =================
 const loadAllbuttonData = () => {
@@ -121,7 +143,8 @@ const displayAllcard = (cards) => {
                     <h1 class="text-center text-4xl font-bold">${card.word}</h1>
                     <h2 class="text-center text-xl mt-2">Meaning / Pronunciation</h2>
                     <h1 class="text-center text-[32px] text-[#464649]">
-                        "${card.meaning} / ${card.pronunciation}"
+                        "${card.meaning ? card.meaning : "অর্থ পাওয়া যায়নি"} / ${card.pronunciation}"
+                        
                     </h1>
 
                     <div class="flex justify-between mt-56">
@@ -152,7 +175,7 @@ const inforButton = (info) => {
     document.getElementById("info_modal").showModal();
     document.getElementById("info-container").innerHTML = `
         <h1 class="text-[24px] font-semibold">
-            ${info.word} (${info.pronunciation})
+            ${info.word} ( <i class="fa-solid fa-microphone-lines"></i> : ${info.pronunciation})
         </h1>
         <h2 class="mt-3 font-semibold">Meaning</h2>
         <p>${info.meaning}</p>
@@ -161,17 +184,17 @@ const inforButton = (info) => {
         <p>${info.sentence}</p>
 
         <h2 class="mt-3 font-semibold">সমার্থক শব্দ</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 card-actions mt-3"> 
+        <div class="grid grid-cols-2 md:grid-cols-3 card-actions mt-3">
+            ${info.synonyms
+                .filter(word => word)
+                .slice(0, 3)            
+                .map(word => `
             <div class="w-[110px] h-[40px] rounded-md bg-[#EDF7FF] flex justify-center items-center">
-                <h2 class="poppins text-20px capitalize">${info.synonyms[0]}</h2>
+                <h2 class="poppins text-20px capitalize">${word}</h2>
             </div>
-            <div class="w-[110px] h-[40px] rounded-md bg-[#EDF7FF] flex justify-center items-center">
-                <h2 class="poppins text-20px capitalize">${info.synonyms[1]}</h2>
-            </div> 
-            <div class="w-[110px] h-[40px] rounded-md bg-[#EDF7FF] flex justify-center items-center">
-                <h2 class="poppins text-20px capitalize">${info.synonyms[2]}</h2>
-             </div> 
+            `).join("")}
         </div>
+
     `;
 };
 
