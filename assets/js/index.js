@@ -163,7 +163,7 @@ const displayAllcard = (cards) => {
             </div>
             
         `
-        hideLoader()
+        
         return;
     }
 
@@ -198,7 +198,7 @@ const displayAllcard = (cards) => {
         `;
         cardContainer.appendChild(div);
     });
-    hideLoader()
+    
 };
 
 // ================= INFO MODAL =================
