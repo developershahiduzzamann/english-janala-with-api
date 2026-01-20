@@ -24,6 +24,38 @@ document.getElementById("btn-get-start").addEventListener("click", function (eve
     }
 });
 
+function handlePasswordInput() {
+    const passwordInput = document.getElementById("input-password");
+    const toggleBtn = document.getElementById("toggle-btn");
+
+    if (passwordInput.value.length > 0) {
+        toggleBtn.classList.remove("hidden");
+    } else {
+        toggleBtn.classList.add("hidden");
+        passwordInput.type = "password";
+
+        const icon = toggleBtn.querySelector("i");
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    }
+}
+
+function togglePassword() {
+    const passwordInput = document.getElementById("input-password");
+    const icon = document.querySelector("#toggle-btn i");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    } else {
+        passwordInput.type = "password";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    }
+}
+
+
 document.getElementById("log-Out").addEventListener("click", function () {
     document.getElementById("vocabularies").style.display = "none";
     document.getElementById("frequently").style.display = "none";
@@ -141,24 +173,24 @@ const displayAllcard = (cards) => {
             <div class="card bg-base-100  h-[370px]">
                 <div class="card-body">
                     <div class="card bg-base-100 shadow-sm h-full hover:bg-[#E9F4FF]">
-    <h1 class="text-center text-3xl font-bold mt-5">${card.word}</h1>
-    <h2 class="text-center text-xl mt-2">Meaning / Pronunciation</h2>
-    <h1 class="text-center text-[22px] text-[#464649]">
-        "${card.meaning ? card.meaning : "অর্থ পাওয়া যায়নি"} / ${card.pronunciation}"
-    </h1>
+                    <h1 class="text-center text-3xl font-bold mt-5">${card.word}</h1>
+                    <h2 class="text-center text-xl mt-2">Meaning / Pronunciation</h2>
+                    <h1 class="text-center text-[22px] text-[#464649]">
+                        "${card.meaning ? card.meaning : "অর্থ পাওয়া যায়নি"} / ${card.pronunciation}"
+                    </h1>
 
-    <div class="flex justify-around mt-26">
-        <button onclick="informationButton(${card.id})"
-            class="btn w-[56px] h-[56px] bg-[#E9F4FF] hover:bg-[#422AD5] hover:text-white">
-            <i class="fa-solid fa-circle-info"></i>
-        </button>
+                   <div class="flex justify-around mt-26">
+                      <button onclick="informationButton(${card.id})"
+                      class="btn w-[56px] h-[56px] bg-[#422AD5] text-white lg:bg-[#E9F4FF] lg:text-black hover:bg-[#422AD5] hover:text-white">
+                      <i class="fa-solid fa-circle-info"></i>
+                      </button>
 
-        <!-- sound button -->
-        <button class="card-sound btn w-[56px] h-[56px] bg-[#E9F4FF] hover:bg-[#422AD5] hover:text-white">
-            <i class="fa-solid fa-volume-low"></i>
-        </button>
-    </div>
-</div>
+                      <!-- sound button -->
+                      <button class="card-sound btn w-[56px] h-[56px] bg-[#422AD5] text-white lg:bg-[#E9F4FF] lg:text-black hover:bg-[#422AD5] hover:text-white">
+                      <i class="fa-solid fa-volume-low"></i>
+                      </button>
+                    </div>
+                </div>
 
                     
                 </div>
