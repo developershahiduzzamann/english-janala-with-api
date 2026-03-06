@@ -237,11 +237,9 @@ const inforButton = (info) => {
 
 // ================= Loader =================
 const showLoader = () => {
-    // loader দেখাও
     document.getElementById("loader").classList.remove("hidden");
     document.getElementById("card-container").classList.add("hidden");
 
-    // 3 সেকেন্ড পরে loader লুকাও
     setTimeout(() => {
         document.getElementById("loader").classList.add("hidden");
         document.getElementById("card-container").classList.remove("hidden");
@@ -267,16 +265,13 @@ document.addEventListener("click", function (e) {
 
     speechSynthesis.cancel();
 
-    // ON icon
     soundBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
 
     const utterance = new SpeechSynthesisUtterance(text);
 
-    // Bangla / English detect
     const isBangla = /[\u0980-\u09FF]/.test(text);
     utterance.lang = isBangla ? "bn-BD" : "en-US";
 
-    // 🎤 Female voice select
     const femaleVoice = voices.find(v =>
         isBangla
             ? v.lang.startsWith("bn") && v.name.toLowerCase().includes("female")
@@ -287,12 +282,10 @@ document.addEventListener("click", function (e) {
 
     if (femaleVoice) utterance.voice = femaleVoice;
 
-    // 🎵 Sweet sound
     utterance.rate = 0.8;
     utterance.pitch = 1.2;
     utterance.volume = 1;
 
-    // 📴 speaking শেষ হলে auto OFF
     utterance.onend = () => {
         soundBtn.innerHTML = '<i class="fa-solid fa-volume-low"></i>';
     };
